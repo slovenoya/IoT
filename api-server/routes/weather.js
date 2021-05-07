@@ -27,7 +27,7 @@ router.post('/',async (req, res, next) => {
             date: req.body['date'] || req.app.getDate(),
             hour: req.body['hour'] || req.app.getHour(),
             temperature: req.body['temperature'],
-            humidity: req.body['date']
+            humidity: req.body['humidity']
         });
 
         await weatherData.save();
