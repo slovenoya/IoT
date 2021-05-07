@@ -3,6 +3,7 @@ const axios = require("axios").default;
 
 (async () => {
     try {
+        sensor.setMaxRetries(10);
         const res = await sensor.read(11, 14);
         await axios.post("http://localhost:3000/weather", {
             temperature: res.temperature.toFixed(1),
