@@ -24,10 +24,10 @@ router.get('/:date?/:hour?', async (req, res, next) => {
 router.post('/',async (req, res, next) => {
     try {
         const weatherData = await new WeatherData({
-            date: res.body['date'] || res.app.getDate(),
-            hour: res.body['hour'] || res.app.getHour(),
-            temperature: res.body['temperature'],
-            humidity: res.body['date']
+            date: req.body['date'] || req.app.getDate(),
+            hour: req.body['hour'] || req.app.getHour(),
+            temperature: req.body['temperature'],
+            humidity: req.body['date']
         });
 
         await weatherData.save();
